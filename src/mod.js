@@ -1,10 +1,9 @@
 
-
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // TODO delegate some of these imports to the apropriate files
-import { getFirestore, } from "firebase/firestore";
+import { getFirestore, addDoc, updateDoc, deleteField, doc, collection, setDoc, getDoc, getDocs, query, where, orderBy } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -21,3 +20,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+console.log("test1");
+
+// Functions
+
+export const getStaticMenu = async () => {
+	return await getDocs(collection(db, "staticMenu"));
+};
+
+export const getWeeklySpecials = async () => {
+	return await getDocs(collection(db, "weeklySpecials"));
+};
+
+
+
